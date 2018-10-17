@@ -4,6 +4,7 @@ from lib.config import Config
 from lib.sources.decklinkavsource import DeckLinkAVSource
 from lib.sources.imgvsource import ImgVSource
 from lib.sources.tcpavsource import TCPAVSource
+from lib.sources.v4l2source import V4L2Source
 
 log = logging.getLogger('AVSourceManager')
 
@@ -23,6 +24,10 @@ def spawn_source(name, port, outputs=None,
 
     if kind == 'decklink':
         sources[name] = DeckLinkAVSource(name, outputs, has_audio, has_video)
+        return sources[name]
+
+    if kind == 'v4l2':
+        sources[name] = V4L2Source(name, outputs, has_audio, has_video)
         return sources[name]
 
     if kind != 'tcp':
