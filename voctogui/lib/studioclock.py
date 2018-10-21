@@ -80,7 +80,7 @@ class StudioClock(Gtk.ToolItem):
         # set a reasonable font size
         cr.set_font_size(cr.user_to_device_distance(0, height / 5)[1])
         # format time into a string
-        text = time.strftime("%H:%M")
+        text = "{:02d}:{:02d}".format(local_time.tm_hour, local_time.tm_min)
         # get text drawing extents
         (xbearing, ybearing,
          textwidth, textheight,
