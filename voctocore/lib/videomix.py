@@ -371,6 +371,10 @@ class VideoMix(object):
                 pass
             elif idx == self.sourceB:
                 pad.xpos, pad.ypos = pippos
+                pad.croptop, \
+                    pad.cropleft, \
+                    pad.cropbottom, \
+                    pad.cropright = pipcrop
                 pad.width, pad.height = pipsize
                 pad.zorder = 2
 
